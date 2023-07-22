@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text-center my-4 ">{{ questions }}</h1>
+    <div class="container">
+        <form action="/{{questions.id}}/savol/" method="POST">
+            {% csrf_token %}
+            <ol class="list-unstyled border p-3">
+                {% for savol in savollar %}
+                    <li>
+                        <input id="text" type="radio" name="ovoz" value="{{ savol.id }}">
+                        <lable for="text">{{savol}}  <span class="mx-5">ovozlar soni:>>> {{ savol.ovozlar_soni }}</span></lable>
+                    </li>
+                {% endfor %}
+            </ol>
+            <button class="btn btn-success">send</button>
+        </form>
+    </div>
+</body>
+</html>
