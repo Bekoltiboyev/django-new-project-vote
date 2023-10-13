@@ -8,6 +8,7 @@ urlpatterns = [
     path('<int:question_id>/savol/', Menu, name="savol"),
     # path('<int:question_id>/javoblar/', Vote, name="vote")
     # path('<int:question_id>/vote/', Ovozlar)
+    path('add/question/', add_question, name='add_question')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
